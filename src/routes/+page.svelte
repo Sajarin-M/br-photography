@@ -19,10 +19,9 @@
     <div class="flex flex-col py-8 px-5 mx-auto items-center max-w-7xl">
       <h3 class="text-xl">👋 Hi, I am Binu Rashin</h3>
       <p class="my-5 text-xl leading-8 text-justify text-gray-4">
-        A professional photographer with a passion for capturing the beauty of life through my lens.
-        With over 2 years of experience in the field, I specialize in portrait, wedding, and nature
-        photography. My goal is to create images that tell a story and evoke emotion, leaving a
-        lasting impression on those who view them.
+        Passionate photographer with 2+ years of experience specializing in portrait, wedding, and
+        nature photography. I aim to create emotive, storytelling images that leave a lasting
+        impression
       </p>
     </div>
   </div>
