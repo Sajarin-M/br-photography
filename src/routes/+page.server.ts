@@ -5,6 +5,11 @@ import {
   PUBLIC_IKIT_URL_ENDPOINT,
 } from '$env/static/public';
 import ImageKit from 'imagekit';
+import type { FileObject } from 'imagekit/dist/libs/interfaces';
+
+type ImageCustomMetaData = {
+  order: number;
+};
 
 export async function load() {
   const imagekit = new ImageKit({
@@ -13,17 +18,19 @@ export async function load() {
     urlEndpoint: PUBLIC_IKIT_URL_ENDPOINT,
   });
 
-  const imagesCount: number = await new Promise((resolve, reject) =>
-    imagekit.listFiles(
-      {
-        path: PUBLIC_IKIT_FOLDER_NAME,
-      },
-      (error, result) => {
-        if (error) reject(error);
-        resolve(result?.length ?? 0);
-      },
-    ),
-  );
+  const files = (await imagekit.listFiles({
+    path: PUBLIC_IKIT_FOLDER_NAME,
+  })) as FileObject[];
 
-  return { imagesCount };
+  if (!files) return { imageFiles: [] as FileObject[] };
+
+  const orderedFiles = files
+    .filter((f) => typeof (f.customMetadata as ImageCustomMetaData).order === 'number')
+    .sort(
+      (a, b) =>
+        (a.customMetadata as ImageCustomMetaData).order -
+        (b.customMetadata as ImageCustomMetaData).order,
+    );
+
+  return { imageFiles: orderedFiles as FileObject[] };
 }

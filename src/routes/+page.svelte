@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PUBLIC_IKIT_FOLDER_NAME, PUBLIC_IKIT_URL_ENDPOINT } from '$env/static/public';
+  import { PUBLIC_IKIT_URL_ENDPOINT } from '$env/static/public';
   import ImageKit from 'imagekit-javascript';
 
   export let data;
@@ -31,21 +31,23 @@
   <div class="bg-dark-5 p-5 border-1 divider">
     <h3 class="mb-5 text-md leading-8">My Favorite Pics</h3>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {#each Array(data.imagesCount).fill(0) as _, i}
+      {#each data.imageFiles as imageFile}
         <img
           class="h-[20rem] lg:h-[25rem] w-full object-cover rounded-xl"
           src={imagekit.url({
-            path: `${PUBLIC_IKIT_FOLDER_NAME}/${i + 1}.jpg`,
+            path: imageFile.filePath,
             transformation: [{ height: '600' }],
           })}
-          alt={`image-${i}`}
+          alt={imageFile.name}
         />
       {/each}
     </div>
   </div>
 
   <!-- contact -->
-  <div class="bg-dark-7/50 flex py-3 justify-center text-xl gap-5 fixed bottom-0 w-full border-1 divider">
+  <div
+    class="bg-dark-7/50 flex py-3 justify-center text-xl gap-5 fixed bottom-0 w-full border-1 divider"
+  >
     <a class="bg-blue-5" href="tel:+918129832512">
       <div class="i-fa-phone" />
     </a>
