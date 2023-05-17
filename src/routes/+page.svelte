@@ -45,7 +45,7 @@
   </div>
 
   <!-- contact -->
-  <div class="bg-dark-7 flex py-3 justify-center text-xl gap-5 sticky bottom-0 border-1 divider">
+  <div class="bg-dark-7/50 flex py-3 justify-center text-xl gap-5 fixed bottom-0 w-full border-1 divider">
     <a class="bg-blue-5" href="tel:+918129832512">
       <div class="i-fa-phone" />
     </a>
@@ -77,6 +77,6 @@
   }
 
   .divider {
-    box-shadow: 0px 0 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0 5px rgba(255, 255, 255, 0.2);
   }
 </style>
