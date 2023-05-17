@@ -28,6 +28,7 @@
   "type": "module",
   "dependencies": {
     "@iconify-json/fa": "^1.1.4",
+    "@sentry/sveltekit": "^7.52.1",
     "@sveltejs/adapter-static": "^2.0.2",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@unocss/extractor-svelte": "^0.51.13",
