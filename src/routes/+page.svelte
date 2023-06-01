@@ -35,7 +35,7 @@
           class="h-[20rem] lg:h-[25rem] w-full object-cover rounded-xl"
           src={imagekit.url({
             path: imageFile.filePath,
-            transformation: [{ height: '600' }],
+            transformation: [{ height: '1500' }],
           })}
           alt={imageFile.name}
         />
